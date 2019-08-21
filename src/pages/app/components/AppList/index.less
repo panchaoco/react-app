@@ -1,0 +1,51 @@
+.appList {
+  width: 100%;
+  padding: .2rem .3rem 0;
+  box-sizing: border-box;
+  ul {
+    li {
+      display: flex;
+      padding: .2rem 0;
+      border-bottom: 1px solid #ddd;
+      strong {
+        font-weight: 400;
+        font-size: .36rem;
+        line-height: 1.5rem;
+        color: #7b7b7b;
+      }
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 .4rem;
+      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        span {
+          font-size: .26rem;
+          white-space: pre-wrap;
+          &:nth-child(2) {
+            color: #a1a1a1;
+          }
+        }
+      }
+      &:nth-child(odd) {
+        img {
+          border-radius: .3rem;
+        }
+      }
+      &:nth-child(even) {
+        img {
+          border-radius: 0.9rem;
+        }
+      }
+    }
+  }
+  .noResult {
+    font-size: .32rem;
+    color: #a1a1a1;
+    text-align: center;
+    padding: .6rem 0;
+  }
+}

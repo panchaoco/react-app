@@ -1,0 +1,15 @@
+{
+  "name": "TestApp",
+  "short_name": "TestApp",
+  "display": "fullscreen",
+  "scope": "/",
+  "start_url": "/app",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/icon_128X128.79ddc5874efb8b481d9a3d06133b6213.jpg",
+      "sizes": "128X128",
+      "type": "image/png"
+    }
+  ]
+}

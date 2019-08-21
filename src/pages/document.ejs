@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0, user-scalable=no">
+  <meta name=apple-mobile-web-app-title content="Lindz's Blog">
+  <meta name=apple-mobile-web-app-capable content="yes">
+  <meta name=apple-mobile-web-app-status-bar-style content="#838a88">
+  <title>Your App</title>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+  (function(){
+    setRem();
+    window.addEventListener("resize", setRem);
+    function setRem(){
+      var html = document.documentElement;
+      var hWidth = html.getBoundingClientRect().width;
+      var fz = hWidth / 7.5;
+      html.style.fontSize =  fz <= 100 ? fz + 'px' : '100px';
+    }
+
+  })()
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('<%= context.publicPath %>service-worker.js')
+        .then((reg) => {
+          console.log('Service worker registered.', reg);
+        }).catch(e => {
+        console.log('<%= context.pubicPath %>');
+        console.log('err=>', e.message)
+      });
+    });
+  }
+</script>
+</body>
+</html>

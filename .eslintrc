@@ -1,0 +1,8 @@
+{
+  "extends": "eslint-config-umi",
+  "rules": {
+    "no-undef": "off",
+    "implicit-arrow-linebreak": "off",
+    "no-restricted-globals": "off"
+  }
+}
