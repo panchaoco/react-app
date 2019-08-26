@@ -44,12 +44,13 @@ export default class AppIndexUI extends React.PureComponent<AppIndexProps, AppIn
 
   }
 
-  private getAppListData = (search?: string) => {
+  private getAppListData = (search?: string, type?: string) => {
     if (this.props.dispatch) {
       this.props.dispatch({
         type: 'app/getAppListData',
         payload: Object.assign({}, this.state.query, {
-          search: search || this.state.query.search || ''
+          search: search || this.state.query.search || '',
+          type: type
         })
       });
     }
@@ -59,7 +60,7 @@ export default class AppIndexUI extends React.PureComponent<AppIndexProps, AppIn
     this.props.dispatch({
       type: 'app/commonReducers',
       payload: {
-        loadingStatus: 0,
+        loadingStatus: 0
       }
     });
     const val = e.currentTarget.value;
@@ -71,7 +72,7 @@ export default class AppIndexUI extends React.PureComponent<AppIndexProps, AppIn
     });
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
-      this.getAppListData(val);
+      this.getAppListData(val, 'search');
     }, 600)
   }
 

@@ -26,6 +26,7 @@ export default {
           loadingStatus: 0,
         }
       });
+      console.log('payload', payload)
       const res = yield call(getAppListData, payload);
       let { appData } = yield select(({app}) => ({appData: app.appData}));
       if (!appData) {
@@ -34,6 +35,8 @@ export default {
           entry: res.feed.entry
         })
       } else if(payload.search) {
+        appData.entry = res.feed.entry;
+      } else if (payload.type === 'search' && !payload.search) {
         appData.entry = res.feed.entry;
       } else {
         appData.entry = appData.entry.concat(res.feed.entry)
